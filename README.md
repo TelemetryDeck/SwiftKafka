@@ -1,24 +1,27 @@
-<p align="center">
-<a href="http://kitura.io/">
-<img src="https://raw.githubusercontent.com/IBM-Swift/Kitura/master/Sources/Kitura/resources/kitura-bird.svg?sanitize=true" height="100" alt="Kitura">
-</a>
-</p>
+
+# Fork notes
+
+## Compiling in Xcode
+
+To compile librdkafka with Xcode, do these two things:
+
+1. `brew install librdkafka`
+2. add this to the `target` section of your `Package.swift`:
+
+```swift
+linkerSettings: [
+    .unsafeFlags(["-Xlinker", "-L/usr/local/lib"], .when(platforms: [.macOS]))
+]
+```
+
+source: https://github.com/Kitura/SwiftKafka/issues/11#issuecomment-947528301
 
 
-<p align="center">
-<a href="https://ibm-swift.github.io/SwiftKafka/index.html">
-<img src="https://img.shields.io/badge/apidoc-SwiftKafka-1FBCE4.svg?style=flat" alt="APIDoc">
-</a>
-<a href="https://travis-ci.org/IBM-Swift/SwiftKafka">
-<img src="https://travis-ci.org/IBM-Swift/SwiftKafka.svg?branch=master" alt="Build Status - Master">
-</a>
-<img src="https://img.shields.io/badge/os-macOS-green.svg?style=flat" alt="macOS">
-<img src="https://img.shields.io/badge/os-linux-green.svg?style=flat" alt="Linux">
-<img src="https://img.shields.io/badge/license-Apache2-blue.svg?style=flat" alt="Apache 2">
-<a href="http://swift-at-ibm-slack.mybluemix.net/">
-<img src="http://swift-at-ibm-slack.mybluemix.net/badge.svg" alt="Slack Status">
-</a>
-</p>
+## Compression / Buffer things
+
+https://github.com/Kitura/SwiftKafka/issues/7
+
+
 
 # SwiftKafka
 
