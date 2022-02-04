@@ -6,7 +6,15 @@
 To compile librdkafka with Xcode, do these two things:
 
 1. `brew install librdkafka`
-2. add this to the `target` section of your `Package.swift`:
+2. add this to your `dependencies` section of `Package.swift`
+   ```swift
+       dependencies: [
+         // ...
+        .package(url: "https://github.com/TelemetryDeck/SwiftKafka.git", branch: "main"),
+        // ...
+    ],
+    ```
+3. add this to the `target` section of your `Package.swift`:
 
 ```swift
 linkerSettings: [
